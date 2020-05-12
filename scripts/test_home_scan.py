@@ -21,7 +21,7 @@ class TestScan:
         allure.attach('相册扫描', '点击进入相册，随机选择一张图片扫一扫，'
                               '验证扫描结果是否正常')
         is_true = self.home_scan.scan_by_album()
-        allure.attach(open('./screen/hh_img.jpg', 'rb').read(), '图片', allure.attachment_type.PNG)
+        allure.attach(open('./screen/ab_img.jpg', 'rb').read(), '图片', allure.attachment_type.PNG)
         assert is_true
 
     #  拍摄照片扫描交易商

@@ -52,24 +52,18 @@ class HomeScan(BaseAction):
     # 通过相册识别
     def scan_by_album(self):
         self.album_in()
-        sleep(3)
-        # self.select_from_more(scan_picture_id)
         ele = self.select_from_more(scan_picture_id)
         ele.click()
         self.click(picture_confirm_id)
-        self.d.screenshot('./screen/hh_img.jpg')
+        self.d.screenshot('./screen/ab_img.jpg')
         return self.scan_sure()
 
     # 通过相机拍摄识别
     def scan_by_album_camera(self):
         self.album_in()
-        sleep(1)
         self.click(scan_camera_id)  # 点击相册相机
-        sleep(1)
         self.click(xioami_camera_take)  # 点击拍摄
-        sleep(1)
         self.click(xiaomi_camera_done)  # 点击完成拍摄
-        sleep(1)
         self.click(xiaomi_camera_done_confirm)  # 点击确认选择
         return self.scan_sure()
 

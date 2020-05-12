@@ -8,7 +8,7 @@ class BaseAction:
         self.d = u2.connect()  # 一个设备时
         self.d.app_start('com.bailun.huichacha', stop=True)
 
-    def click(self, loc, timeout=None):
+    def click(self, loc, timeout=10000):
         """
         找到元素后，直接点击
         :param loc: 元素定位
