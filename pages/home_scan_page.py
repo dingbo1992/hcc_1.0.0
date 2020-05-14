@@ -23,18 +23,6 @@ result_text = 'com.bailun.huichacha:id/tv_custom_toolbar_title'
 
 class HomeScan(BaseAction):
 
-    def scan_sure(self):
-        try:
-            expect_message = '智能识别结果'
-            el = self.d.xpath(result_text)
-            message = el.text
-            print(message)
-            if message == expect_message:
-                print(message)
-                return True
-        except Exception:
-            return False  # 获取扫描结果
-
     # 进入扫一扫
     def scan(self):
         self.click(scan_id)
@@ -42,7 +30,7 @@ class HomeScan(BaseAction):
     def scan_by_camera(self):
         self.scan()
         self.click(scan_take_id)
-        return self.scan_sure()
+        return self.text_judge_equal('智能识别结果', result_text)
 
     # 进入相册页面
     def album_in(self):
@@ -56,7 +44,7 @@ class HomeScan(BaseAction):
         ele.click()
         self.click(picture_confirm_id)
         self.d.screenshot('./screen/ab_img.jpg')
-        return self.scan_sure()
+        return self.text_judge_equal('智能识别结果', result_text)
 
     # 通过相机拍摄识别
     def scan_by_album_camera(self):
@@ -65,7 +53,7 @@ class HomeScan(BaseAction):
         self.click(xioami_camera_take)  # 点击拍摄
         self.click(xiaomi_camera_done)  # 点击完成拍摄
         self.click(xiaomi_camera_done_confirm)  # 点击确认选择
-        return self.scan_sure()
+        return self.text_judge_equal('智能识别结果', result_text)
 
 
 # if __name__ == '__main__':

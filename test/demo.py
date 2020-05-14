@@ -1,9 +1,16 @@
-from time import sleep
+import pytest
+from base.base_yml import yml_with_file
+from pages.customer_page import CustomerAction
 
-import uiautomator2 as u2
 
-d = u2.connect()
-print(d.current_app())
+class TestSearch:
+
+    cus_action = CustomerAction()
+
+    # @pytest.mark.parametrize('keys', yml_with_file('search_data')['test_search'])
+    def test_search(self):
+        self.cus_action.customer_search()
+
 
 
 
